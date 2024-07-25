@@ -1,0 +1,230 @@
+/* font-family: 'Roboto Mono', monospace;
+font-family: 'Source Code Pro', monospace; */
+
+/* NORMALIZACION: */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /*esto mantiene el alto y ancho a pesar del padding y border*/
+    font-family: 'Source Code Pro', monospace;
+    list-style: none; /*esto quita los logos a las listas desordenada*/
+    text-decoration: none; /*esto le quita a los enlaces el subrayado basico*/
+    color: white;
+}
+
+body{
+    background-color: black; /*TODO: borrar cdo tengamos el fondo final*/
+}
+header{
+    position: fixed; /*para que se quede fijo en la parte superior*/
+    right: 0;
+    top: 0;
+    z-index: 80; /*para que se muestre por encima*/
+    width: 100%;
+    display: flex; /*esto hara que se muestren los elementos en linea*/
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 3%;
+    background-color: transparent;
+
+}
+.logo{
+    margin-left: 3%;
+    font-size: 50px;
+    font-weight: 800;
+    color: rgba(208, 23, 23, 0.908);
+}
+.navlist{
+    display: flex;
+}
+.navlist a{
+    margin-left: 30px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s ease;
+}
+.navlist a:hover{
+
+    border-bottom: 2px solid white; /*este es un subrayado blanco que aparece cdo estamos encima con el mouse*/
+}
+#menu-icon{
+    display: none;  /*para  que aparezca cuando se colapsa la pagina */
+}
+
+#menu-icon{
+    font-size: 35px;
+    z-index: 101; /*para que este sobre el header de 100*/
+    cursor: pointer; /*para que aparezca la manito cdo ponemos el mouse encima*/
+}
+#menu-toggle{
+    display: none; /*que nunca se vea el checkbox*/
+}
+.menu-icon-action{
+    display: block; /*para que no se le pueda hacer click*/
+}
+.hero{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(90deg, rgba(0,0,0,0.9837184873949579) 0%, rgba(8,8,14,0.9360994397759104) 18%, rgba(121,9,9,0.9725140056022409) 46%, rgba(60,0,0,1) 100%);
+    position: relative; /*para que sea relativo al contenedor y poder usar top, bottom, left y tight*/
+    display: grid; /*para que se pueda dividir en dos columnas*/
+    grid-template-columns: 1fr 1fr; /* estas son las 2 columnas*/
+    align-items: center;/*centrado vertical*/
+    gap: 2rem;
+}
+section{
+    padding: 0 8%;
+}
+.hero-text h5{
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 3px;
+}
+.hero-text h4{
+    font-size: 25px;
+    font-weight: 600;
+    margin-top: 25px;
+}
+.hero-text h1{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 40px;
+    line-height: 1;
+    margin: 0 0 30px;
+}
+.hero-text p{
+    font-size: 90%;
+    margin-bottom: 40px;
+    line-height: 1.9;
+}
+.hero-img img{
+    width: 500px;
+    margin: 5% 0 0 10%;
+    height: auto;
+    transition: all 4s ease;
+}
+.hero-img img:hover{
+    width: 550px;
+    opacity: 0.7;  
+}
+.hero-text a{
+    display: inline-block;
+    background-color: rgba(109, 109, 109, 0.228);
+    border-radius: 30px;
+    padding: 5px 30px;
+    line-height: 1.4;
+}
+.cv{
+    font-size: 15px;
+    font-weight: 500;
+    border-bottom: 2px solid transparent;
+    transition: all 1s ease;
+    margin-top: 5px;
+}
+.cv:hover{
+    font-size: 20px;
+    border-bottom: 2px solid white; /*este es un subrayado blanco que aparece cdo estamos encima con el mouse*/
+    transform: translateX(15px);
+}
+.icons{
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+    font-size: 35px;
+}
+.icons i{
+    display: block;
+    margin: 26px 0;
+    transition: all 0.5s ease;
+}
+.icons i:hover{
+   color: rgba(174, 174, 174, 0.899);
+   transform: translateY(-3px);
+}
+.scroll-down{
+    position: absolute;
+    bottom: 6%;
+    right: 2%;
+}
+.scroll-down i {
+    display: block;
+    padding: 15px;
+    font-size: 25px;
+    background-color: #21383d;
+    border-radius: 30px;
+    transition: all 1s ease;
+}
+.scroll-down i:hover{
+    transform: translateY(-5px);
+    opacity: 0.7;
+}
+
+/* aca vamos a hacer media queris para que la web sea responsive */
+@media (max-width:992px) { /*para trabajar como si fuera una tablet*/
+    section {
+        padding: 0 3%;
+        transition: 0.2s;
+    }
+    .hero-text{
+        padding-top: 0;
+    }
+    .hero-img{
+        text-align: center;
+    }
+    .hero-img img{
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+    .hero-text p{
+        font-size: 70%;
+    }
+    .icons{
+        display: none;
+    }
+    .scroll-down{ /*lo sacamos al scroll porque la tablet es con el dedo*/
+        display: none;
+    }
+}
+@media (max-width:768px) {
+    .menu-icon-action{
+        display: block;
+    }
+    #menu-icon{
+        display: block;
+    }
+    .hero-text{
+        text-align: center;
+        padding-top: 100px;
+    }
+    .hero-img img{
+        margin: 0;
+    }
+    .hero{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 200px;
+        height: 180px;
+        background-color: rgba(113, 0, 0, 0.599);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 20px;
+        transition: all 0.5s ease;
+    }
+    #menu-toggle:checked + label.menu-icon-action + ul{
+        right: 0;
+    }
+    .navlist a{
+        margin-left: 0;
+        display: block;
+        margin: 5px 0;
+    }
+}
